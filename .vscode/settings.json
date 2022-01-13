@@ -1,4 +1,7 @@
 {
   "java.configuration.updateBuildConfiguration": "automatic",
-  "editor.defaultFormatter": "redhat.java"
+  "editor.defaultFormatter": "redhat.java",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
 }
