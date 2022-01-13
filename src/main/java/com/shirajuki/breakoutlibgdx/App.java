@@ -8,9 +8,9 @@ public class App {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
         config.setIdleFPS(60);
         config.useVsync(true);
-        config.setTitle("Tutorial");
+        config.setTitle("Breakout");
 
-        config.setWindowedMode(960, 640);
+        config.setWindowedMode(Configuration.GAME_WIDTH, Configuration.GAME_HEIGHT);
         // config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
         new Lwjgl3Application(new AppController(), config);
     }
