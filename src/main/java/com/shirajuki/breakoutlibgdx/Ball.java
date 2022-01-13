@@ -22,7 +22,7 @@ public class Ball extends Entity {
   }
 
   public void checkCollision(Paddle paddle) {
-    if (collidesWith(paddle)) {
+    if (this.collidesWith(paddle)) {
       this.color = Color.GREEN;
       this.dy = -this.dy;
     } else {
@@ -30,21 +30,28 @@ public class Ball extends Entity {
     }
   }
 
+  public void checkCollision(Block block) {
+    if (this.collidesWith(block)) {
+      this.dy = -this.dy;
+      block.destroyed = true;
+    }
+  }
+
   // http://jeffreythompson.org/collision-detection/circle-rect.php
-  private boolean collidesWith(Paddle paddle) {
+  private boolean collidesWith(Entity entity) {
     // temporary variables to set edges for testing
     double testX = this.x;
     double testY = this.y;
 
     // which edge is closest?
-    if (this.x < paddle.x)
-      testX = paddle.x; // test left edge
-    else if (this.x > paddle.x + paddle.width)
-      testX = paddle.x + paddle.width; // right edge
-    if (this.y < paddle.y)
-      testY = paddle.y; // top edge
-    else if (this.y > paddle.y + paddle.height)
-      testY = paddle.y + paddle.height; // bottom edge
+    if (this.x < entity.x)
+      testX = entity.x; // test left edge
+    else if (this.x > entity.x + entity.width)
+      testX = entity.x + entity.width; // right edge
+    if (this.y < entity.y)
+      testY = entity.y; // top edge
+    else if (this.y > entity.y + entity.height)
+      testY = entity.y + entity.height; // bottom edge
 
     // get distance from closest edges
     double distX = this.x - testX;

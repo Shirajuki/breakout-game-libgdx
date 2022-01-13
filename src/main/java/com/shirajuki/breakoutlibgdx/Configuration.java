@@ -4,6 +4,8 @@ package com.shirajuki.breakoutlibgdx;
 public class Configuration {
   public static final int GAME_WIDTH = 960;
   public static final int GAME_HEIGHT = 640;
+  public static final int BLOCK_WIDTH = 135;
+  public static final int BLOCK_HEIGHT = 30;
   private static Configuration instance = new Configuration(); // eagerly loads the singleton
 
   private Configuration() {
